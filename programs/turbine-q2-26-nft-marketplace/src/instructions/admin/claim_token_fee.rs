@@ -54,6 +54,8 @@ pub struct ClaimTokenFee<'info> {
 
 impl<'info> ClaimTokenFee<'info> {
     pub fn claim_fees(&mut self, amount: u64) -> Result<()> {
+        require!(amount > 0, MarketplaceError::InvalidFee);
+
         let treasury_balance = self.treasury_payment_ata.amount;
 
         require!(

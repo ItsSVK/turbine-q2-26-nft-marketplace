@@ -77,8 +77,6 @@ impl<'info> AcceptSolOffer<'info> {
             .checked_div(MAX_FEE_BASIS_POINTS as u128)
             .ok_or(MarketplaceError::MathOverflow)? as u64;
 
-        require!(fee < amount, MarketplaceError::InvalidFee);
-
         let maker_amount = amount
             .checked_sub(fee)
             .ok_or(MarketplaceError::MathOverflow)?;

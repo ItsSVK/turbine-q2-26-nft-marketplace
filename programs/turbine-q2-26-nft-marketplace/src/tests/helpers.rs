@@ -156,8 +156,9 @@ pub fn program_binary_path() -> std::path::PathBuf {
 }
 
 pub fn mpl_core_fixture_path() -> std::path::PathBuf {
+    // scripts/fetch-test-programs.sh dumps the binary here.
     std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-        .join("tests/fixtures/mpl_core.so")
+        .join("../../target/deploy/mpl_core.so")
 }
 
 /// Returns an SVM with the marketplace program loaded.
@@ -187,11 +188,8 @@ pub fn setup_svm_with_mpl_core() -> Option<LiteSVM> {
     let mpl_path = mpl_core_fixture_path();
     if !mpl_path.exists() {
         eprintln!(
-            "Skipping mpl-core test — fixture not found at {}.\n\
-             Obtain it with:\n  \
-             solana program dump CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d \\\n  \
-             {} -u mainnet-beta",
-            mpl_path.display(),
+            "Skipping mpl-core test — binary not found at {}.\n\
+             Run:  bash scripts/fetch-test-programs.sh",
             mpl_path.display()
         );
         return None;
