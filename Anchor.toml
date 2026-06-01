@@ -1,12 +1,13 @@
 [toolchain]
 package_manager = "yarn"
+anchor_version = "0.31.1"
 
 [features]
 resolution = true
 skip-lint = false
 
 [programs.localnet]
-turbine_q2_26_nft_marketplace = "3rkuu4wrct8cn9hd8fPzno8fW9bDKikhykAjwT8ASVdA"
+turbine_q2_26_nft_marketplace = "GdpmNmSGvz9AkftRpjdCXKeRroQie68vzUufvZTyCy8V"
 
 [provider]
 cluster = "localnet"
