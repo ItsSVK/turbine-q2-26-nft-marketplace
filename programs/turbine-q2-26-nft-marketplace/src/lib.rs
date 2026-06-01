@@ -3,6 +3,9 @@ pub mod error;
 pub mod instructions;
 pub mod state;
 
+#[cfg(test)]
+mod tests;
+
 use anchor_lang::prelude::*;
 
 pub use constants::*;
